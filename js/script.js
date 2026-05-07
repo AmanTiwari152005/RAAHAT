@@ -5,6 +5,9 @@ const scrollProgress = document.getElementById("scrollProgress");
 const typingText = document.getElementById("typingText");
 const year = document.getElementById("currentYear");
 const hero = document.querySelector(".hero");
+const imageFrame = document.getElementById("imageFrame");
+const frameTrack = document.getElementById("frameTrack");
+const frameCounter = document.getElementById("frameCounter");
 const counters = document.querySelectorAll(".counter");
 const revealElements = document.querySelectorAll(".reveal");
 const navItems = document.querySelectorAll(".nav-link");
@@ -14,11 +17,97 @@ const sections = [...navItems]
 
 year.textContent = new Date().getFullYear();
 
-document.querySelectorAll(".work-grid, .gallery-grid, .vision-grid, .contact-grid").forEach((group) => {
+document.querySelectorAll(".work-grid, .khel-section .container, .activities-section .container, .vision-grid, .contact-grid").forEach((group) => {
   group.querySelectorAll(".reveal").forEach((element, index) => {
     element.style.transitionDelay = `${Math.min(index * 80, 320)}ms`;
   });
 });
+
+const frameImages = [
+  "images/0b122a5a-426b-4a93-b917-ae1da75dc768.jpeg",
+  "images/1b645ab5-9c4e-42ae-a329-f59fe7a820e4.jpeg",
+  "images/IMG20251129130103.jpg",
+  "images/IMG_9182.JPG",
+  "images/DSC05447.JPG",
+  "images/IMG_4140.jpg",
+  "images/DSC05502.JPG",
+  "images/DSC_0212.JPG",
+  "images/2a9c8d1d-113c-497c-9c51-5d0e77040d7f.jpeg",
+  "images/1f3d3973-01f0-46a2-b060-bf887dc19132.jpeg",
+  "images/0a85c5a0-0f03-4504-8dbc-4544526bedf1.jpeg",
+  "images/IMG_3897.jpg",
+  "images/DSC_0202.JPG"
+];
+
+const FRAME_INTERVAL = 5000;
+const SLIDE_DURATION = 850;
+let frameIndex = 0;
+
+function buildFrameTrack() {
+  if (!frameTrack || frameImages.length === 0) {
+    return;
+  }
+
+  const loopingImages = [...frameImages, frameImages[0]];
+
+  loopingImages.forEach((imagePath, index) => {
+    const slide = document.createElement("div");
+    const image = document.createElement("img");
+
+    slide.className = "frame-slide";
+    image.src = imagePath;
+    image.alt = index === frameImages.length ? "" : "RAAHAT activity photo";
+
+    if (index === frameImages.length) {
+      image.setAttribute("aria-hidden", "true");
+    }
+
+    slide.appendChild(image);
+    frameTrack.appendChild(slide);
+  });
+}
+
+function updateFrameDetails(realIndex) {
+  if (imageFrame) {
+    imageFrame.style.setProperty("--frame-bg", `url("${frameImages[realIndex]}")`);
+  }
+
+  if (frameCounter) {
+    frameCounter.textContent = `${realIndex + 1} / ${frameImages.length}`;
+  }
+}
+
+function slideFrameWindow() {
+  if (!frameTrack || frameImages.length === 0) {
+    return;
+  }
+
+  frameIndex += 1;
+  frameTrack.style.transform = `translateX(-${frameIndex * 100}%)`;
+  updateFrameDetails(frameIndex % frameImages.length);
+
+  if (frameIndex === frameImages.length) {
+    setTimeout(() => {
+      frameTrack.classList.add("no-transition");
+      frameIndex = 0;
+      frameTrack.style.transform = "translateX(0)";
+      frameTrack.offsetHeight;
+      frameTrack.classList.remove("no-transition");
+    }, SLIDE_DURATION);
+  }
+}
+
+if (imageFrame && frameTrack && frameImages.length > 0) {
+  buildFrameTrack();
+  updateFrameDetails(0);
+
+  frameImages.forEach((imagePath) => {
+    const image = new Image();
+    image.src = imagePath;
+  });
+
+  setInterval(slideFrameWindow, FRAME_INTERVAL);
+}
 
 const typingPhrases = [
   "Teach with empathy.",

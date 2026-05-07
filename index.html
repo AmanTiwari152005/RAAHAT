@@ -135,14 +135,16 @@
           <article class="work-card reveal">
             <span class="card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24">
-                <path d="M15 4l1.2 3.2L19.5 8.5l-3.3 1.3L15 13l-1.2-3.2-3.3-1.3 3.3-1.3Z"></path>
-                <path d="M5 20l7-7"></path>
-                <path d="M10 15l4 4"></path>
-                <path d="M3.5 20.5l3-3"></path>
+                <path d="M8 4h8v3a4 4 0 0 1-8 0Z"></path>
+                <path d="M6 5H3v2a4 4 0 0 0 5 3.8"></path>
+                <path d="M18 5h3v2a4 4 0 0 1-5 3.8"></path>
+                <path d="M12 11v4"></path>
+                <path d="M9 20h6"></path>
+                <path d="M10 15h4l1 5H9Z"></path>
               </svg>
             </span>
-            <h3>Cleanliness Drives</h3>
-            <p>Community cleanliness initiatives that promote dignity, hygiene, and shared responsibility.</p>
+            <h3>Khel Mela</h3>
+            <p>One of RAAHAT's biggest events where 100+ kids play games, compete, and win exciting prizes.</p>
           </article>
           <article class="work-card reveal">
             <span class="card-icon" aria-hidden="true">
@@ -169,6 +171,46 @@
       </div>
     </section>
 
+    <section class="section khel-section" id="khel-mela">
+      <div class="container">
+        <div class="khel-panel reveal">
+          <div class="khel-copy">
+            <p class="eyebrow">Featured Event</p>
+            <h2>Khel Mela</h2>
+            <p class="khel-lead">
+              One of RAAHAT's biggest events where 100+ kids participate in fun games,
+              competitions, and win exciting prizes.
+            </p>
+            <p>
+              Khel Mela is one of the biggest events organized by RAAHAT &ndash; Be The
+              ChangeMaker, where around 100+ children participate in exciting games,
+              activities, and competitions.
+            </p>
+            <p>
+              The event is designed to encourage teamwork, confidence, joy, and active
+              participation among children. Winners are rewarded with exciting prizes and
+              gifts, creating memorable experiences and smiles for every participant.
+            </p>
+          </div>
+
+          <div class="khel-gallery">
+            <figure class="khel-photo khel-photo-main">
+              <img src="images/DSC05447.JPG" alt="Children participating in outdoor games during Khel Mela">
+              <figcaption>Khel Mela Games</figcaption>
+            </figure>
+            <figure class="khel-photo">
+              <img src="images/0b122a5a-426b-4a93-b917-ae1da75dc768.jpeg" alt="RAAHAT volunteers with children at Khel Mela">
+              <figcaption>100+ Kids Participated</figcaption>
+            </figure>
+            <figure class="khel-photo">
+              <img src="images/DSC05502.JPG" alt="A volunteer carrying a child during Khel Mela">
+              <figcaption>Joyful Moments</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section impact-section" id="impact">
       <div class="container">
         <div class="impact-panel reveal">
@@ -190,6 +232,11 @@
               <strong><span class="counter" data-target="100">0</span>+</strong>
               <span>Donation Drives</span>
             </div>
+            <div class="impact-card">
+              <strong><span class="counter" data-target="100">0</span>+</strong>
+              <span>Kids Participated</span>
+              <small>In Khel Mela Events</small>
+            </div>
           </div>
         </div>
       </div>
@@ -203,31 +250,12 @@
           <p>Every image carries a simple idea: show up, help well, and keep going.</p>
         </div>
 
-        <div class="gallery-grid">
-          <figure class="gallery-item gallery-feature reveal">
-            <img src="images/IMG_3897.jpg" alt="Children showing drawings after a RAAHAT activity">
-            <figcaption>Teaching Sessions</figcaption>
-          </figure>
-          <figure class="gallery-item reveal">
-            <img src="images/IMG_4140.jpg" alt="RAAHAT volunteers conducting teaching sessions with children">
-            <figcaption>Learning Circles</figcaption>
-          </figure>
-          <figure class="gallery-item gallery-tall reveal">
-            <img src="images/IMG_9182.JPG" alt="RAAHAT volunteers wearing club shirts during a green drive">
-            <figcaption>RAAHAT Volunteers</figcaption>
-          </figure>
-          <figure class="gallery-item reveal">
-            <img src="images/IMG20251129130103.jpg" alt="RAAHAT members with children after a learning activity">
-            <figcaption>Community Bonding</figcaption>
-          </figure>
-          <figure class="gallery-item gallery-wide reveal">
-            <img src="images/DSC_0202.JPG" alt="RAAHAT plantation drive with volunteers and saplings">
-            <figcaption>Plantation Drives</figcaption>
-          </figure>
-          <figure class="gallery-item reveal">
-            <img src="images/DSC_0212.JPG" alt="RAAHAT members planting a sapling">
-            <figcaption>Community Action</figcaption>
-          </figure>
+        <div class="image-frame reveal" id="imageFrame">
+          <div class="frame-track" id="frameTrack" aria-label="RAAHAT activity image slideshow"></div>
+          <div class="frame-caption">
+            <span id="frameCounter">1 / 13</span>
+            <strong>RAAHAT Moments</strong>
+          </div>
         </div>
       </div>
     </section>
@@ -263,21 +291,25 @@
           <p class="eyebrow">Contact</p>
           <h2>Start a conversation with RAAHAT.</h2>
           <p>Contact Us: +91 91113 72169, +91 82991 04320</p>
-          <p>Social: <a href="https://www.instagram.com/raahatclublnctbhopal/">Instagram</a> &bull; <a href="https://www.linkedin.com/company/raahat-be-the-change-maker/posts/?feedView=all">LinkedIn</a> </p>
+          <div class="social-row">
+            <a href="https://www.instagram.com/raahatclublnctbhopal/" target="_blank" rel="noopener" class="social-chip" aria-label="Open RAAHAT Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a href="https://www.linkedin.com/company/raahat-be-the-change-maker/posts/?feedView=all" target="_blank" rel="noopener" class="social-chip" aria-label="Open RAAHAT LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4.8 9h3.4v10.8H4.8Z"></path>
+                <path d="M6.5 4.2a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"></path>
+                <path d="M10.6 9h3.2v1.5c.5-.9 1.7-1.8 3.5-1.8 3.6 0 4.2 2.3 4.2 5.3v5.8h-3.4v-5.1c0-1.2 0-2.8-1.8-2.8s-2.1 1.3-2.1 2.7v5.2h-3.6Z"></path>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </div>
-
-        <!-- <form class="contact-form reveal">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required>
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
-
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form> -->
       </div>
     </section>
   </main>
