@@ -15,18 +15,15 @@
 
   <header class="site-header" id="siteHeader">
     <nav class="navbar">
-     <a href="#home" class="brand" aria-label="RAAHAT home">
-    
-    <div class="logo-container">
-        <img src="292742027_451789806797189_2829586278942700769_n.jpg" alt="RAAHAT Logo" class="logo">
-    </div>
-
-    <div class="brand-text">
-        <strong>RAAHAT</strong>
-        <small>Be The ChangeMaker</small>
-    </div>
-
-</a>
+      <a href="#home" class="brand" aria-label="RAAHAT home">
+        <div class="logo-container">
+          <img src="292742027_451789806797189_2829586278942700769_n.jpg" alt="RAAHAT Logo" class="logo">
+        </div>
+        <div class="brand-text">
+          <strong>RAAHAT</strong>
+          <small>Be The ChangeMaker</small>
+        </div>
+      </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
         <span></span>
@@ -45,21 +42,51 @@
     </nav>
   </header>
 
+  <div class="warrior-modal" id="warriorModal" aria-hidden="true">
+    <div class="warrior-modal-backdrop" data-close-warrior-modal></div>
+    <div class="warrior-dialog" role="dialog" aria-modal="true" aria-labelledby="warriorModalTitle">
+      <div class="warrior-dialog-logo">
+        <img src="292742027_451789806797189_2829586278942700769_n.jpg" alt="RAAHAT logo">
+      </div>
+      <p class="eyebrow">Join RAAHAT</p>
+      <h2 id="warriorModalTitle">Ready to become a RAAHAT Warrior?</h2>
+      <p>Use your time, ideas, and kindness to create real change with our student-led community.</p>
+      <div class="warrior-actions">
+        <a href="#" class="btn btn-primary" id="warriorYesBtn">Yes</a>
+        <button class="btn btn-ghost" type="button" data-close-warrior-modal>Maybe Later</button>
+      </div>
+    </div>
+  </div>
+
   <main>
     <section class="hero" id="home" aria-label="RAAHAT hero section">
+      <div class="hero-image-slider" id="heroImageSlider" aria-hidden="true">
+        <img src="images/IMG_9182.JPG" alt="" class="hero-image-slide active">
+        <img src="images/DSC05447.JPG" alt="" class="hero-image-slide">
+        <img src="images/DSC05502.JPG" alt="" class="hero-image-slide">
+        <img src="images/DSC_0212.JPG" alt="" class="hero-image-slide">
+      </div>
       <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <p class="eyebrow">Social Welfare Club &bull; Established 2009</p>
-        <h1>RAAHAT &ndash; Be The ChangeMaker</h1>
-        <p class="hero-subtitle">Helping hands. Real impact. Stronger communities.</p>
-        <p class="typing-line">
-          <span id="typingText"></span>
-          <span class="typing-cursor" aria-hidden="true"></span>
-        </p>
-        <div class="hero-actions">
-          <a href="#join" class="btn btn-primary">Join Us</a>
-          <a href="#activities" class="btn btn-secondary">See Activities</a>
+      <div class="hero-shell">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Social Welfare Club &bull; Established 2009</p>
+          <h1>RAAHAT &ndash; Be The ChangeMaker</h1>
+          <p class="hero-subtitle">Helping hands. Real impact. Stronger communities.</p>
+          <p class="typing-line">
+            <span id="typingText"></span>
+            <span class="typing-cursor" aria-hidden="true"></span>
+          </p>
+          <div class="hero-actions">
+            <a href="#join" class="btn btn-primary">Join Us</a>
+            <a href="#featured-events" class="btn btn-secondary">See Events</a>
+          </div>
+          <div class="hero-proof" aria-label="RAAHAT quick impact numbers">
+            <span><strong>16</strong> Years</span>
+            <span><strong>115+</strong> Volunteers</span>
+            <span><strong>100+</strong> Kids</span>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -81,7 +108,7 @@
         <div class="about-card reveal">
           <img src="images/IMG_3897.jpg" alt="RAAHAT volunteers and children after a teaching activity">
           <div class="about-card-body">
-            <span>15+ years of student-led service</span>
+            <span>16 years of student-led service</span>
             <strong>Learning becomes powerful when it reaches everyone.</strong>
           </div>
         </div>
@@ -171,72 +198,194 @@
       </div>
     </section>
 
-    <section class="section khel-section" id="khel-mela">
+    <section class="section impact-section" id="impact">
       <div class="container">
-        <div class="khel-panel reveal">
-          <div class="khel-copy">
-            <p class="eyebrow">Featured Event</p>
-            <h2>Khel Mela</h2>
-            <p class="khel-lead">
-              One of RAAHAT's biggest events where 100+ kids participate in fun games,
-              competitions, and win exciting prizes.
-            </p>
-            <p>
-              Khel Mela is one of the biggest events organized by RAAHAT &ndash; Be The
-              ChangeMaker, where around 100+ children participate in exciting games,
-              activities, and competitions.
-            </p>
-            <p>
-              The event is designed to encourage teamwork, confidence, joy, and active
-              participation among children. Winners are rewarded with exciting prizes and
-              gifts, creating memorable experiences and smiles for every participant.
-            </p>
+        <div class="impact-panel reveal">
+          <div class="impact-intro">
+            <div>
+              <p class="eyebrow">Our Impact</p>
+              <h2>Built through consistency, care, and student energy.</h2>
+              <p>
+                In 2025, RAAHAT completed 16 years of service while continuing to serve
+                children, households, and underserved communities through student-led action.
+              </p>
+            </div>
+            <div class="impact-hero-card">
+              <strong><span class="counter" data-target="16">0</span></strong>
+              <span>Years of Service</span>
+              <small>Completed in 2025</small>
+            </div>
           </div>
 
-          <div class="khel-gallery">
-            <figure class="khel-photo khel-photo-main">
-              <img src="images/DSC05447.JPG" alt="Children participating in outdoor games during Khel Mela">
-              <figcaption>Khel Mela Games</figcaption>
-            </figure>
-            <figure class="khel-photo">
-              <img src="images/0b122a5a-426b-4a93-b917-ae1da75dc768.jpeg" alt="RAAHAT volunteers with children at Khel Mela">
-              <figcaption>100+ Kids Participated</figcaption>
-            </figure>
-            <figure class="khel-photo">
-              <img src="images/DSC05502.JPG" alt="A volunteer carrying a child during Khel Mela">
-              <figcaption>Joyful Moments</figcaption>
-            </figure>
+          <div class="impact-grid">
+            <div class="impact-card">
+              <strong><span class="counter" data-target="115">0</span>+</strong>
+              <span>Volunteers</span>
+              <small>Youth-driven changemakers</small>
+            </div>
+            <div class="impact-card">
+              <strong><span class="counter" data-target="6">0</span>+</strong>
+              <span>Communities</span>
+              <small>Underserved communities reached</small>
+            </div>
+            <div class="impact-card">
+              <strong><span class="counter" data-target="100">0</span>+</strong>
+              <span>Households</span>
+              <small>Families served</small>
+            </div>
+            <div class="impact-card">
+              <strong><span class="counter" data-target="100">0</span>+</strong>
+              <span>Kids Impacted</span>
+              <small>Through sessions and events</small>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section impact-section" id="impact">
+    <section class="section statistics-section" id="statistics">
       <div class="container">
-        <div class="impact-panel reveal">
-          <div class="section-heading">
-            <p class="eyebrow">Our Impact</p>
-            <h2>Built through consistency, care, and student energy.</h2>
+        <div class="section-heading reveal">
+          <p class="eyebrow">Statistics</p>
+          <h2>Growing reach, year by year.</h2>
+          <p>RAAHAT's teaching sessions grew with stronger volunteer participation and steadier community support.</p>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card reveal">
+            <div class="stat-number"><span class="counter" data-target="100">0</span>+</div>
+            <h3>Sessions in 2025</h3>
+            <p>Regular learning support, mentoring, and community interaction.</p>
+            <div class="stat-bar" aria-hidden="true"><span style="--bar-width: 100%;"></span></div>
+          </article>
+          <article class="stat-card reveal">
+            <div class="stat-number"><span class="counter" data-target="50">0</span>+</div>
+            <h3>Sessions in 2024</h3>
+            <p>A strong foundation year that helped the club expand its rhythm.</p>
+            <div class="stat-bar" aria-hidden="true"><span style="--bar-width: 50%;"></span></div>
+          </article>
+          <article class="stat-card reveal">
+            <div class="stat-number"><span class="counter" data-target="100">0</span>+</div>
+            <h3>Kids &amp; Families</h3>
+            <p>Children and households supported through learning, events, and donation work.</p>
+            <div class="stat-bar" aria-hidden="true"><span style="--bar-width: 78%;"></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline-section" id="timeline">
+      <div class="container">
+        <div class="timeline-panel reveal">
+          <div class="timeline-spotlight">
+            <span>Completed</span>
+            <h2><strong><span class="counter" data-target="16">0</span></strong> Years of Service</h2>
+            <p>From a student initiative in 2009 to a youth-driven movement for education, care, and opportunity.</p>
           </div>
 
-          <div class="impact-grid">
-            <div class="impact-card">
-              <strong><span class="counter" data-target="500">0</span>+</strong>
-              <span>Teaching Sessions</span>
+          <div class="timeline-list">
+            <article class="timeline-item reveal">
+              <span>2009</span>
+              <h3>RAAHAT began at LNCT</h3>
+              <p>A student-led effort started with the belief that consistent service can change lives.</p>
+            </article>
+            <article class="timeline-item reveal">
+              <span>2024</span>
+              <h3>50+ sessions completed</h3>
+              <p>Teaching sessions and outreach work created a stronger rhythm for volunteers and children.</p>
+            </article>
+            <article class="timeline-item reveal">
+              <span>2025</span>
+              <h3>16 years and 1000+ sessions</h3>
+              <p>RAAHAT expanded its impact while celebrating 16 years of meaningful student service.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section featured-section" id="featured-events">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Featured Events</p>
+          <h2>Events that bring care, joy, and action together.</h2>
+          <p>Signature RAAHAT initiatives create useful support, memorable experiences, and stronger community bonds.</p>
+        </div>
+
+        <div class="featured-layout">
+          <article class="featured-main event-card reveal">
+            <div class="featured-media">
+              <div class="khel-slider" id="khelSlider" aria-label="Khel Mela photo slider">
+                <img src="images/DSC05447.JPG" alt="Children playing during Khel Mela" class="khel-slide active">
+                <img src="images/0b122a5a-426b-4a93-b917-ae1da75dc768.jpeg" alt="RAAHAT volunteers with children at Khel Mela" class="khel-slide">
+                <img src="images/DSC05502.JPG" alt="Volunteer carrying a child during Khel Mela" class="khel-slide">
+              </div>
+              <span class="event-chip">Hero Event</span>
             </div>
-            <div class="impact-card">
-              <strong><span class="counter" data-target="1000">0</span>+</strong>
-              <span>Events</span>
+            <div class="event-content">
+              <span class="event-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 4h8v3a4 4 0 0 1-8 0Z"></path>
+                  <path d="M6 5H3v2a4 4 0 0 0 5 3.8"></path>
+                  <path d="M18 5h3v2a4 4 0 0 1-5 3.8"></path>
+                  <path d="M12 11v4"></path>
+                  <path d="M9 20h6"></path>
+                  <path d="M10 15h4l1 5H9Z"></path>
+                </svg>
+              </span>
+              <p class="eyebrow">Khel Mela Highlight</p>
+              <h3>Khel Mela</h3>
+              <p>
+                Khel Mela is one of the biggest events organized by RAAHAT where 100+
+                children participate in games, competitions, and fun activities while
+                winning exciting prizes.
+              </p>
+              <strong id="khelSlideTitle">Games, prizes, and teamwork</strong>
             </div>
-            <div class="impact-card">
-              <strong><span class="counter" data-target="100">0</span>+</strong>
-              <span>Donation Drives</span>
-            </div>
-            <div class="impact-card">
-              <strong><span class="counter" data-target="100">0</span>+</strong>
-              <span>Kids Participated</span>
-              <small>In Khel Mela Events</small>
-            </div>
+          </article>
+
+          <div class="events-grid">
+            <article class="event-card reveal">
+              <img src="images/IMG20251129130103.jpg" alt="RAAHAT Winter Donation Drive">
+              <div class="event-content">
+                <span class="event-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 3v18"></path>
+                    <path d="m5 6 14 12"></path>
+                    <path d="m19 6-14 12"></path>
+                  </svg>
+                </span>
+                <h3>Winter Donation Drive</h3>
+                <p>Warmth, essentials, and useful supplies collected and shared with families who need support.</p>
+              </div>
+            </article>
+            <article class="event-card reveal">
+              <img src="images/IMG_4140.jpg" alt="RAAHAT Diwali Donation Drive">
+              <div class="event-content">
+                <span class="event-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 3c2.8 3 4.2 5.5 4.2 8a4.2 4.2 0 1 1-8.4 0C7.8 8.5 9.2 6 12 3Z"></path>
+                    <path d="M4 20h16"></path>
+                    <path d="M7 16c1.3 1.4 2.9 2 5 2s3.7-.6 5-2"></path>
+                  </svg>
+                </span>
+                <h3>Diwali Donation Drive</h3>
+                <p>A festive initiative to share happiness, gifts, and essentials with children and households.</p>
+              </div>
+            </article>
+            <article class="event-card reveal">
+              <img src="images/DSC_0212.JPG" alt="RAAHAT Plantation Drive">
+              <div class="event-content">
+                <span class="event-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 19c8.5 0 13-5.4 14-14-8.6 1-14 5.5-14 14Z"></path>
+                    <path d="M5 19c3.8-5.2 7.8-8.4 14-14"></path>
+                  </svg>
+                </span>
+                <h3>Plantation Drive</h3>
+                <p>Students come together to plant, nurture, and protect green spaces around the community.</p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -278,10 +427,10 @@
     <section class="join-section" id="join">
       <div class="container join-content reveal">
         <p class="eyebrow">Join The Movement</p>
-        <h2>Become a volunteer and make your time count.</h2>
+        <h2>Become a warrior and make your time count.</h2>
         <p>Bring your skills, ideas, and empathy. RAAHAT gives them a place to create real change.</p>
-        <!-- Replace this URL with the actual volunteer Google Form link. -->
-        <a href="https://bio.link/raahatclublnct?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRzdgRoXolleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAad4axJyqDBwIuQ37kWG09_6XY48nWRPDIqr2Cv-VIx7ZuCP1l4aCm__VI8SYw_aem_L-iISjOSxdD-k45g6i8uzA" class="btn btn-light" target="_blank" rel="noopener">Become a Volunteer</a>
+        <!-- Replace this URL with the actual warrior registration Google Form link. -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdX-2_TGpH1AgC3XKT_cherke3359dMGzgpRPq0OLnYysUr8g/alreadyresponded" class="btn btn-light" id="joinFormLink" target="_blank" rel="noopener">Become a Warrior</a>
       </div>
     </section>
 
@@ -290,7 +439,23 @@
         <div class="section-copy reveal">
           <p class="eyebrow">Contact</p>
           <h2>Start a conversation with RAAHAT.</h2>
-          <p>Contact Us: +91 91113 72169, +91 82991 04320</p>
+          <p>Reach the RAAHAT team for volunteering, collaborations, and community initiatives.</p>
+
+          <div class="contact-list">
+            <a href="mailto:raahatclublnct@gmail.com" class="contact-link">
+              <span>Email</span>
+              <strong>raahatclublnctbhopal@gmail.com</strong>
+            </a>
+            <a href="tel:+919111372169" class="contact-link">
+              <span>Phone</span>
+              <strong>+91 91113 72169</strong>
+            </a>
+            <a href="tel:+918299104320" class="contact-link">
+              <span>Phone</span>
+              <strong>+91 82991 04320</strong>
+            </a>
+          </div>
+
           <div class="social-row">
             <a href="https://www.instagram.com/raahatclublnctbhopal/" target="_blank" rel="noopener" class="social-chip" aria-label="Open RAAHAT Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -308,6 +473,24 @@
               </svg>
               <span>LinkedIn</span>
             </a>
+            <a href="https://www.facebook.com/RaahatClubLnct" class="social-chip" aria-label="Open RAAHAT Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.2 8.2H17V4h-3.3c-3.7 0-5.5 2.2-5.5 5.2v2.5H5v4.1h3.2V22h4.3v-6.2h3.5l.6-4.1h-4.1V9.6c0-.9.5-1.4 1.7-1.4Z"></path>
+              </svg>
+              <span>Facebook</span>
+            </a>
+            <a href="https://x.com/RaahatClubLnct" class="social-chip" aria-label="Open RAAHAT X">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.2 10.6 21.5 3h-2.2l-5.1 6.2L10.1 3H3.2l6.7 9.8L3 21h2.2l5.7-6.8 4.5 6.8h6.9Zm-2 2.4-.9-1.3-5.1-7.1h1.9l4.1 5.8.9 1.3 5.4 7.7h-1.9Z"></path>
+              </svg>
+              <span>X</span>
+            </a>
+            <a href="https://whatsapp.com/channel/0029VbB7nUqIyPtNmHUTsM1T" target="_blank" rel="noopener" class="social-chip" aria-label="Message RAAHAT on WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3.2a8.6 8.6 0 0 0-7.3 13.1L3.7 21l4.8-1A8.6 8.6 0 1 0 12 3.2Zm0 15.4c-1.2 0-2.3-.3-3.3-.9l-.3-.2-2.1.5.5-2.1-.2-.3a6.7 6.7 0 1 1 5.4 3Zm3.7-5c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.6.1c-.2.2-.6.7-.8.9-.1.1-.3.2-.5.1a5.5 5.5 0 0 1-2.8-2.5c-.2-.3 0-.4.1-.6l.4-.5c.1-.2.1-.3 0-.5 0-.1-.5-1.2-.7-1.6-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.1 1.6.1.5-.1 1.3-.5 1.5-1 .2-.5.2-1 .1-1.1-.1-.1-.2-.1-.5-.2Z"></path>
+              </svg>
+              <span>WhatsApp</span>
+            </a>
           </div>
         </div>
       </div>
@@ -320,7 +503,10 @@
         <strong>RAAHAT &ndash; Be The ChangeMaker</strong>
         <p>Lakshmi Narain College of Technology</p>
       </div>
-      <p>&copy; <span id="currentYear"></span> RAAHAT. All rights reserved.</p>
+      <div class="footer-meta">
+        <p>&copy; <span id="currentYear"></span> RAAHAT. All rights reserved.</p>
+        <p class="made-by">Made by RAAHATIANS with <span aria-label="love">❤️</span></p>
+      </div>
     </div>
   </footer>
 

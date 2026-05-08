@@ -5,6 +5,13 @@ const scrollProgress = document.getElementById("scrollProgress");
 const typingText = document.getElementById("typingText");
 const year = document.getElementById("currentYear");
 const hero = document.querySelector(".hero");
+const warriorModal = document.getElementById("warriorModal");
+const warriorYesBtn = document.getElementById("warriorYesBtn");
+const joinFormLink = document.getElementById("joinFormLink");
+const warriorCloseButtons = document.querySelectorAll("[data-close-warrior-modal]");
+const heroImageSlides = document.querySelectorAll(".hero-image-slide");
+const khelSlides = document.querySelectorAll(".khel-slide");
+const khelSlideTitle = document.getElementById("khelSlideTitle");
 const imageFrame = document.getElementById("imageFrame");
 const frameTrack = document.getElementById("frameTrack");
 const frameCounter = document.getElementById("frameCounter");
@@ -15,13 +22,66 @@ const sections = [...navItems]
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
-year.textContent = new Date().getFullYear();
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
 
-document.querySelectorAll(".work-grid, .khel-section .container, .activities-section .container, .vision-grid, .contact-grid").forEach((group) => {
+function openWarriorModal() {
+  if (!warriorModal) {
+    return;
+  }
+
+  warriorModal.classList.add("show");
+  warriorModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  if (warriorYesBtn) {
+    warriorYesBtn.focus();
+  }
+}
+
+function closeWarriorModal() {
+  if (!warriorModal) {
+    return;
+  }
+
+  warriorModal.classList.remove("show");
+  warriorModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+if (warriorYesBtn && joinFormLink) {
+  warriorYesBtn.href = joinFormLink.href;
+  warriorYesBtn.target = joinFormLink.target;
+  warriorYesBtn.rel = joinFormLink.rel;
+  warriorYesBtn.addEventListener("click", closeWarriorModal);
+}
+
+warriorCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeWarriorModal);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeWarriorModal();
+  }
+});
+
+window.addEventListener("load", () => {
+  setTimeout(openWarriorModal, 700);
+});
+
+document.querySelectorAll(".work-grid, .impact-grid, .stats-grid, .timeline-list, .featured-layout, .activities-section .container, .vision-grid, .contact-grid").forEach((group) => {
   group.querySelectorAll(".reveal").forEach((element, index) => {
     element.style.transitionDelay = `${Math.min(index * 80, 320)}ms`;
   });
 });
+
+const khelSlideTitles = [
+  "Games, prizes, and teamwork",
+  "100+ kids participating with joy",
+  "Memorable moments for every child"
+];
 
 const frameImages = [
   "images/0b122a5a-426b-4a93-b917-ae1da75dc768.jpeg",
@@ -40,8 +100,35 @@ const frameImages = [
 ];
 
 const FRAME_INTERVAL = 5000;
+const HERO_IMAGE_INTERVAL = 9000;
 const SLIDE_DURATION = 850;
 let frameIndex = 0;
+let heroImageIndex = 0;
+let khelIndex = 0;
+
+function setActiveSlide(slides, activeIndex) {
+  slides.forEach((slide, index) => {
+    slide.classList.toggle("active", index === activeIndex);
+  });
+}
+
+if (heroImageSlides.length > 1) {
+  setInterval(() => {
+    heroImageIndex = (heroImageIndex + 1) % heroImageSlides.length;
+    setActiveSlide(heroImageSlides, heroImageIndex);
+  }, HERO_IMAGE_INTERVAL);
+}
+
+if (khelSlides.length > 1) {
+  setInterval(() => {
+    khelIndex = (khelIndex + 1) % khelSlides.length;
+    setActiveSlide(khelSlides, khelIndex);
+
+    if (khelSlideTitle) {
+      khelSlideTitle.textContent = khelSlideTitles[khelIndex];
+    }
+  }, FRAME_INTERVAL);
+}
 
 function buildFrameTrack() {
   if (!frameTrack || frameImages.length === 0) {
