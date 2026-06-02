@@ -84,19 +84,19 @@ const khelSlideTitles = [
 ];
 
 const frameImages = [
-  "images/0b122a5a-426b-4a93-b917-ae1da75dc768.jpeg",
-  "images/1b645ab5-9c4e-42ae-a329-f59fe7a820e4.jpeg",
-  "images/IMG20251129130103.jpg",
+  "images/optimized/0b122a5a-426b-4a93-b917-ae1da75dc768.jpg",
+  "images/optimized/1b645ab5-9c4e-42ae-a329-f59fe7a820e4.jpg",
+  "images/optimized/IMG20251129130103.jpg",
   "images/IMG_9182.JPG",
-  "images/DSC05447.JPG",
+  "images/optimized/DSC05447.jpg",
   "images/IMG_4140.jpg",
-  "images/DSC05502.JPG",
-  "images/DSC_0212.JPG",
-  "images/2a9c8d1d-113c-497c-9c51-5d0e77040d7f.jpeg",
-  "images/1f3d3973-01f0-46a2-b060-bf887dc19132.jpeg",
-  "images/0a85c5a0-0f03-4504-8dbc-4544526bedf1.jpeg",
+  "images/optimized/DSC05502.jpg",
+  "images/optimized/DSC_0212.jpg",
+  "images/optimized/2a9c8d1d-113c-497c-9c51-5d0e77040d7f.jpg",
+  "images/optimized/1f3d3973-01f0-46a2-b060-bf887dc19132.jpg",
+  "images/optimized/0a85c5a0-0f03-4504-8dbc-4544526bedf1.jpg",
   "images/IMG_3897.jpg",
-  "images/DSC_0202.JPG"
+  "images/optimized/DSC_0202.jpg"
 ];
 
 const FRAME_INTERVAL = 5000;
@@ -105,6 +105,7 @@ const SLIDE_DURATION = 850;
 let frameIndex = 0;
 let heroImageIndex = 0;
 let khelIndex = 0;
+let frameSlideImages = [];
 
 function setActiveSlide(slides, activeIndex) {
   slides.forEach((slide, index) => {
@@ -142,8 +143,14 @@ function buildFrameTrack() {
     const image = document.createElement("img");
 
     slide.className = "frame-slide";
-    image.src = imagePath;
+    image.dataset.src = imagePath;
+    image.loading = "lazy";
+    image.decoding = "async";
     image.alt = index === frameImages.length ? "" : "RAAHAT activity photo";
+
+    if (index === 0) {
+      image.src = imagePath;
+    }
 
     if (index === frameImages.length) {
       image.setAttribute("aria-hidden", "true");
@@ -152,6 +159,8 @@ function buildFrameTrack() {
     slide.appendChild(image);
     frameTrack.appendChild(slide);
   });
+
+  frameSlideImages = [...frameTrack.querySelectorAll("img")];
 }
 
 function updateFrameDetails(realIndex) {
@@ -164,12 +173,22 @@ function updateFrameDetails(realIndex) {
   }
 }
 
+function loadFrameSlide(index) {
+  const image = frameSlideImages[index];
+
+  if (image && !image.src) {
+    image.src = image.dataset.src;
+  }
+}
+
 function slideFrameWindow() {
   if (!frameTrack || frameImages.length === 0) {
     return;
   }
 
   frameIndex += 1;
+  loadFrameSlide(frameIndex);
+  loadFrameSlide((frameIndex + 1) % frameSlideImages.length);
   frameTrack.style.transform = `translateX(-${frameIndex * 100}%)`;
   updateFrameDetails(frameIndex % frameImages.length);
 
@@ -187,11 +206,7 @@ function slideFrameWindow() {
 if (imageFrame && frameTrack && frameImages.length > 0) {
   buildFrameTrack();
   updateFrameDetails(0);
-
-  frameImages.forEach((imagePath) => {
-    const image = new Image();
-    image.src = imagePath;
-  });
+  loadFrameSlide(1);
 
   setInterval(slideFrameWindow, FRAME_INTERVAL);
 }

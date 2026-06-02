@@ -699,7 +699,7 @@ button {
 .impact-panel {
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.66)),
-    url("../images/DSC_0202.JPG") center / cover no-repeat;
+    url("../images/optimized/DSC_0202.jpg") center / cover no-repeat;
   border: 1px solid rgba(255, 255, 255, 0.82);
   border-radius: 1.8rem;
   box-shadow: var(--shadow);
@@ -1253,7 +1253,7 @@ button {
 .join-section {
   background:
     linear-gradient(135deg, rgba(45, 38, 29, 0.94), rgba(139, 93, 36, 0.9), rgba(201, 151, 63, 0.84)),
-    url("../images/IMG20251129130103.jpg") center / cover no-repeat;
+    url("../images/optimized/IMG20251129130103.jpg") center / cover no-repeat;
   color: #ffffff;
   padding: 6rem 0;
   position: relative;
