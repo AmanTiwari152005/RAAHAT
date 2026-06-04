@@ -10,6 +10,7 @@ const warriorYesBtn = document.getElementById("warriorYesBtn");
 const joinFormLink = document.getElementById("joinFormLink");
 const warriorCloseButtons = document.querySelectorAll("[data-close-warrior-modal]");
 const heroImageSlides = document.querySelectorAll(".hero-image-slide");
+const heroSlideDots = document.querySelectorAll(".hero-slide-dot");
 const khelSlides = document.querySelectorAll(".khel-slide");
 const khelSlideTitle = document.getElementById("khelSlideTitle");
 const imageFrame = document.getElementById("imageFrame");
@@ -113,10 +114,17 @@ function setActiveSlide(slides, activeIndex) {
   });
 }
 
+function updateHeroSlideDots(activeIndex) {
+  heroSlideDots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === activeIndex);
+  });
+}
+
 if (heroImageSlides.length > 1) {
   setInterval(() => {
     heroImageIndex = (heroImageIndex + 1) % heroImageSlides.length;
     setActiveSlide(heroImageSlides, heroImageIndex);
+    updateHeroSlideDots(heroImageIndex);
   }, HERO_IMAGE_INTERVAL);
 }
 
