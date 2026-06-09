@@ -3285,6 +3285,7 @@ p,
   width: auto;
 }
 
+
 .hero-subtitle {
   color: rgba(255, 255, 255, 0.85);
   font-size: clamp(1.125rem, 1.8vw, 1.25rem);
@@ -3778,6 +3779,7 @@ p,
 }
 
 .warrior-dialog p:not(.eyebrow) {
+  color: var(--accent);
   margin: 0;
   max-width: 34rem;
 }
@@ -3811,4 +3813,8 @@ p,
   .warrior-actions {
     justify-content: center;
   }
+}
+
+.gold-text {
+  color: var(--accent) !important;
 }
