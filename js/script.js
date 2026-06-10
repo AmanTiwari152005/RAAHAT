@@ -22,6 +22,28 @@ const navItems = document.querySelectorAll(".nav-link");
 const sections = [...navItems]
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
+const cinematicLoader = document.getElementById("cinematicLoader");
+
+function startCinematicLoader() {
+  if (!cinematicLoader) {
+    document.body.classList.remove("loader-active");
+    window.dispatchEvent(new CustomEvent("raahat-loader-complete"));
+    return;
+  }
+
+  const holdDuration = 4700;
+  const shutterDuration = 1050;
+
+  window.setTimeout(() => {
+    cinematicLoader.classList.add("opening");
+
+    window.setTimeout(() => {
+      cinematicLoader.remove();
+      document.body.classList.remove("loader-active");
+      window.dispatchEvent(new CustomEvent("raahat-loader-complete"));
+    }, shutterDuration);
+  }, holdDuration);
+}
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -68,9 +90,11 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-window.addEventListener("load", () => {
+window.addEventListener("load", startCinematicLoader);
+
+window.addEventListener("raahat-loader-complete", () => {
   setTimeout(openWarriorModal, 700);
-});
+}, { once: true });
 
 document.querySelectorAll(".work-grid, .impact-grid, .stats-grid, .timeline-list, .featured-layout, .activities-section .container, .vision-grid, .contact-grid").forEach((group) => {
   group.querySelectorAll(".reveal").forEach((element, index) => {

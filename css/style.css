@@ -3818,3 +3818,105 @@ p,
 .gold-text {
   color: var(--accent) !important;
 }
+
+/* Cinematic first-load shutter screen. */
+body.loader-active {
+  overflow: hidden;
+}
+
+.cinematic-loader {
+  background: #090604;
+  display: flex;
+  height: 100vh;
+  height: 100svh;
+  height: 100dvh;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: auto;
+  position: fixed;
+  width: 100vw;
+  z-index: 2147483000;
+}
+
+.cinematic-loader-half {
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  transform: translateX(0);
+  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+  width: 50vw;
+  will-change: transform;
+}
+
+.cinematic-loader-image {
+  height: 100vh;
+  height: 100svh;
+  height: 100dvh;
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+.cinematic-loader-left .cinematic-loader-image {
+  left: 0;
+}
+
+.cinematic-loader-right .cinematic-loader-image {
+  right: 0;
+}
+
+.cinematic-loader::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+  content: "";
+  height: 100%;
+  left: 50%;
+  opacity: 0.24;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  z-index: 2;
+}
+
+.cinematic-loader.opening {
+  pointer-events: none;
+}
+
+.cinematic-loader.opening .cinematic-loader-left {
+  transform: translateX(-101%);
+}
+
+.cinematic-loader.opening .cinematic-loader-right {
+  transform: translateX(101%);
+}
+
+.cinematic-loader.opening::before {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-loader-half {
+    transition-duration: 0.01ms;
+  }
+}
+
+@media (max-width: 760px) {
+  .cinematic-loader,
+  .cinematic-loader-image {
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+  }
+
+  .cinematic-loader-image {
+    object-position: center center;
+  }
+}
