@@ -3591,7 +3591,11 @@ p,
 }
 
 .event-content {
+  bottom: 0;
+  left: 0;
   padding: 1.25rem;
+  position: absolute;
+  right: 0;
 }
 
 .event-card h3 {
@@ -3884,7 +3888,7 @@ body.loader-active {
 }
 
 .raahat-startup-card {
-  background: #F4EEEE;
+  background: #e3cbc6;
   border-radius: calc(var(--startup-width) * 0.0416667);
   box-shadow: 0 calc(var(--startup-width) * 0.0291667) calc(var(--startup-width) * 0.0833333) rgba(0, 0, 0, 0.38);
   color: #111111;
@@ -3944,12 +3948,12 @@ body.loader-active {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: calc(var(--startup-width) * 0.0225);
   font-weight: 500;
-  left: calc(var(--startup-width) * 0.385417);
+  left: calc(var(--startup-width) * 0.41);
   letter-spacing: 0.02em;
   line-height: 1;
   margin: 0;
   position: absolute;
-  top: calc(var(--startup-width) * 0.072917);
+  top: calc(var(--startup-width) * 0.05449);
   white-space: nowrap;
 }
 
