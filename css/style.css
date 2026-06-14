@@ -3692,6 +3692,31 @@ p,
   font-weight: 600;
 }
 
+.contact-section .social-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.contact-section .social-chip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.contact-section .social-chip svg {
+  height: 1.15rem;
+  width: 1.15rem;
+}
+
+.contact-section .social-chip:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
 }
@@ -3704,7 +3729,25 @@ p,
   }
 
   .nav-links {
-    background: color-mix(in oklab, var(--background) 96%, transparent);
+    background: #fff8ef;
+    border: 1px solid rgba(124, 29, 27, 0.18);
+    box-shadow: 0 22px 55px rgba(43, 19, 15, 0.22);
+  }
+
+  .site-header:not(.scrolled) .nav-links .nav-link,
+  .site-header.scrolled .nav-links .nav-link,
+  .nav-links .nav-link {
+    color: #2b130f;
+  }
+
+  .site-header:not(.scrolled) .nav-links .nav-link:hover,
+  .site-header:not(.scrolled) .nav-links .nav-link.active,
+  .site-header.scrolled .nav-links .nav-link:hover,
+  .site-header.scrolled .nav-links .nav-link.active,
+  .nav-links .nav-link:hover,
+  .nav-links .nav-link.active {
+    background: rgba(124, 29, 27, 0.1);
+    color: #7c1d1b;
   }
 }
 
@@ -4048,6 +4091,7 @@ body.loader-active {
   background: #000000;
   bottom: 0;
   opacity: 0;
+  overflow: hidden;
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -4065,12 +4109,33 @@ body.loader-active {
   right: 0;
 }
 
+.raahat-startup-shutter-scene {
+  bottom: 0;
+  left: auto;
+  position: absolute;
+  right: auto;
+  top: 0;
+  width: 100vw;
+}
+
+.raahat-startup-shutter-left .raahat-startup-shutter-scene {
+  left: 0;
+}
+
+.raahat-startup-shutter-right .raahat-startup-shutter-scene {
+  right: 0;
+}
+
 .raahat-startup-loader.opening {
   pointer-events: none;
 }
 
-.raahat-startup-loader.opening .raahat-startup-scene {
+.raahat-startup-loader.opening > .raahat-startup-scene {
   opacity: 0;
+}
+
+.raahat-startup-loader.opening .raahat-startup-shutter-scene {
+  opacity: 1;
 }
 
 .raahat-startup-loader.opening .raahat-startup-shutter {

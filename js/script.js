@@ -23,6 +23,26 @@ const sections = [...navItems]
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 const cinematicLoader = document.getElementById("cinematicLoader");
+const startupScene = document.querySelector("[data-startup-screen]");
+const startupShutters = document.querySelectorAll(".raahat-startup-shutter");
+
+function prepareStartupShutters() {
+  if (!startupScene || startupShutters.length === 0) {
+    return;
+  }
+
+  startupShutters.forEach((shutter) => {
+    if (shutter.querySelector(".raahat-startup-shutter-scene")) {
+      return;
+    }
+
+    const sceneClone = startupScene.cloneNode(true);
+    sceneClone.removeAttribute("id");
+    sceneClone.removeAttribute("data-startup-screen");
+    sceneClone.classList.add("raahat-startup-shutter-scene");
+    shutter.appendChild(sceneClone);
+  });
+}
 
 function startCinematicLoader() {
   if (!cinematicLoader) {
@@ -33,6 +53,8 @@ function startCinematicLoader() {
 
   const holdDuration = 4700;
   const shutterDuration = 1050;
+
+  prepareStartupShutters();
 
   window.setTimeout(() => {
     cinematicLoader.classList.add("opening");
