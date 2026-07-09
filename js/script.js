@@ -18,7 +18,7 @@ const frameTrack = document.getElementById("frameTrack");
 const frameCounter = document.getElementById("frameCounter");
 const counters = document.querySelectorAll(".counter");
 const revealElements = document.querySelectorAll(".reveal");
-const navItems = document.querySelectorAll(".nav-link");
+const navItems = document.querySelectorAll('.nav-link[href^="#"]');
 const sections = [...navItems]
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
